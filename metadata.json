@@ -1,0 +1,8 @@
+{
+  "name": "Mokars Technology Corps",
+  "description": "Innovating Today for a Smarter Tomorrow. A professional portal for showcasing projects, recruiting talent, and facilitating donations for Africa's tech future.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
