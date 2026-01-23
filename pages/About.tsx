@@ -8,7 +8,7 @@ const About: React.FC = () => {
     { year: '2021', event: 'Launch of AgriSmart Hub, reaching 100+ farmers.' },
     { year: '2022', event: 'Expanded into rural energy with SolarGrid IoT project.' },
     { year: '2023', event: 'Recognized as Top African Innovator by Global Tech Forum.' },
-    { year: '2024', event: 'Opened our regional headquarters in Dakar.' },
+    { year: '2024', event: 'Opened our regional headquarters in Kumasi.' },
   ];
 
   return (
@@ -18,7 +18,7 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-heading font-bold text-royal mb-6">Our Story</h1>
           <p className="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed">
-            From a small garage in Dakar to a Pan-African technology powerhouse, Mokars has always been driven by one goal: Innovation with Impact.
+            From a small garage in Kumasi to a Pan-African technology powerhouse, Mokars has always been driven by one goal: Innovation with Impact.
           </p>
         </div>
       </section>
@@ -29,13 +29,13 @@ const About: React.FC = () => {
           <span className="text-emerald font-bold uppercase tracking-widest text-sm mb-4 block">The Brains Behind Mokars</span>
           <h2 className="text-4xl font-heading font-bold text-royal">Meet Our Leadership Team</h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {TEAM.map(member => (
             <div key={member.id} className="group">
               <div className="relative overflow-hidden rounded-2xl mb-6 shadow-lg aspect-square">
-                <img 
-                  src={member.imageUrl} 
+                <img
+                  src={member.imageUrl}
                   alt={member.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -62,11 +62,11 @@ const About: React.FC = () => {
             <h2 className="text-4xl font-heading font-bold mb-4">Our Journey</h2>
             <p className="text-blue-100 opacity-80">Tracing our growth from day one to today.</p>
           </div>
-          
+
           <div className="relative">
             {/* Horizontal Line for Desktop */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-blue-800 -translate-y-1/2"></div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-4">
               {timeline.map((item, i) => (
                 <div key={i} className="relative flex flex-col items-center md:items-start text-center md:text-left">
@@ -87,11 +87,11 @@ const About: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-24">
         <p className="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-10">Trusted by Local & International Organizations</p>
         <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-           {['UNDP', 'Gov of Senegal', 'Google for Startups', 'AWS Impact', 'Village Capital'].map(partner => (
-             <span key={partner} className="text-3xl font-heading font-black text-gray-500 hover:text-royal transition-colors cursor-default select-none">
-               {partner}
-             </span>
-           ))}
+          {['UNDP', 'Gov of Senegal', 'Google for Startups', 'AWS Impact', 'Village Capital'].map(partner => (
+            <span key={partner} className="text-3xl font-heading font-black text-gray-500 hover:text-royal transition-colors cursor-default select-none">
+              {partner}
+            </span>
+          ))}
         </div>
       </section>
     </div>

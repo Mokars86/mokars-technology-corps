@@ -4,32 +4,32 @@ import { Project, ProjectStatus, TeamMember, BlogPost } from './types';
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    name: 'AgriSmart Hub',
+    name: 'VoxSpace',
     status: ProjectStatus.COMPLETED,
-    description: 'An AI-powered platform for small-scale farmers to predict crop yields.',
-    techStack: ['Python', 'TensorFlow', 'React'],
-    impact: 'Increased yield for 500+ local farmers by 30%.',
-    imageUrl: 'https://picsum.photos/seed/agri/800/600',
+    description: 'A futuristic social media platform that ensure every individual voices are heard across the universe.',
+    techStack: ['React', 'Node.js', 'AI'],
+    impact: 'Connecting over 1M users worldwide.',
+    imageUrl: 'https://picsum.photos/seed/voxspace/800/600',
     progress: 100,
   },
   {
     id: '2',
-    name: 'HealthBridge Mobile',
+    name: 'MTc Player',
     status: ProjectStatus.ONGOING,
-    description: 'Telemedicine application connecting rural patients with urban doctors.',
-    techStack: ['Flutter', 'Node.js', 'PostgreSQL'],
-    impact: 'Aims to reduce travel time for medical consultations by 80%.',
-    imageUrl: 'https://picsum.photos/seed/health/800/600',
-    progress: 65,
+    description: 'A Super Sonic Intelligence media player with very unique features among all media players.',
+    techStack: ['AI', 'Audio Processing', 'React Native'],
+    impact: 'Revolutionizing media consumption with intelligent features.',
+    imageUrl: 'https://picsum.photos/seed/mtcplayer/800/600',
+    progress: 50,
   },
   {
     id: '3',
-    name: 'SolarGrid IoT',
+    name: 'MTc DJ Player',
     status: ProjectStatus.ONGOING,
-    description: 'Smart monitoring system for community-owned solar mini-grids.',
-    techStack: ['C++', 'MQTT', 'React Native'],
-    impact: 'Optimizing energy distribution for 3 rural villages.',
-    imageUrl: 'https://picsum.photos/seed/solar/800/600',
+    description: 'A DJ companion media player that uses AI and other features to make DJing very enjoyable.',
+    techStack: ['AI', 'Audio Processing', 'React'],
+    impact: 'Enhancing the DJ experience with smart assistance.',
+    imageUrl: 'https://picsum.photos/seed/mtcdjplayer/800/600',
     progress: 40,
   },
   {
@@ -42,12 +42,13 @@ export const PROJECTS: Project[] = [
     imageUrl: 'https://picsum.photos/seed/fintech/800/600',
     progress: 0,
   },
+
 ];
 
 export const TEAM: TeamMember[] = [
   {
     id: '1',
-    name: 'Moussa Kars',
+    name: 'Mubarik Tuahir Ali',
     role: 'CEO & Founder',
     bio: 'Visionary leader with 15+ years in African tech development.',
     imageUrl: 'https://picsum.photos/seed/moussa/400/400',

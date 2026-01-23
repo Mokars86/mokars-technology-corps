@@ -30,10 +30,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-heading font-semibold text-lg mb-6">Contact Us</h4>
             <ul className="space-y-3 text-blue-100">
-              <li>123 Innovation Drive</li>
-              <li>Tech District, Dakar, Senegal</li>
+              <li>Eatern Bypass, Aboabo</li>
+              <li>Kumasi Ghana- AS-144-0542</li>
               <li>contact@mokarstech.com</li>
-              <li>+221 33 000 00 00</li>
+              <li>+233 54 692 0428</li>
             </ul>
           </div>
 
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             </form>
           </div>
         </div>
-        
+
         <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-blue-200 text-sm">
             © {new Date().getFullYear()} Mokars Technology Corps. All rights reserved.
