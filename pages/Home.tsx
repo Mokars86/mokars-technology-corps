@@ -63,7 +63,7 @@ const Home: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="bg-white rounded-[2rem] shadow-2xl p-12 -mt-32 relative z-20 border border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="bg-white dark:bg-gray-800 rounded-[2rem] shadow-2xl p-12 -mt-32 relative z-20 border border-gray-100 dark:border-gray-700 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {metrics.map((metric, i) => (
             <motion.div key={i} variants={fadeInUp} className="text-center group">
@@ -87,7 +87,7 @@ const Home: React.FC = () => {
           variants={fadeInUp}
         >
           <span className="text-emerald font-bold uppercase tracking-widest text-sm mb-4 block">Our Mission</span>
-          <h2 className="text-4xl font-heading font-bold text-royal mb-6 leading-tight">
+          <h2 className="text-4xl font-heading font-bold text-royal dark:text-white mb-6 leading-tight">
             Empowering Africa Through Disruptive Innovation
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
@@ -168,7 +168,7 @@ const Home: React.FC = () => {
             <motion.div
               key={testimonial.id}
               variants={fadeInUp}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col items-center text-center relative hover:-translate-y-2 transition-transform"
+              className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center relative hover:-translate-y-2 transition-transform"
             >
               <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-4 border-emerald/20">
                 <img src={testimonial.imageUrl} alt={testimonial.name} className="w-full h-full object-cover" />

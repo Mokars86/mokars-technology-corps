@@ -5,6 +5,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ChatAssistant from './components/ChatAssistant';
 
+import { ThemeProvider } from './context/ThemeContext';
+import ScrollProgress from './components/ScrollProgress';
+
 // Pages
 import Home from './pages/Home';
 import About from './pages/About';
@@ -24,25 +27,28 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/join" element={<Join />} />
-            <Route path="/support" element={<Support />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-        <ChatAssistant />
-      </div>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <ScrollProgress />
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/join" element={<Join />} />
+              <Route path="/support" element={<Support />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+          <ChatAssistant />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 };
 
