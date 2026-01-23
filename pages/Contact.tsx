@@ -1,7 +1,44 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: 'General Inquiry',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: null, message: '' });
+
+    try {
+      // NOTE: Replace these with your actual Service ID, Template ID, and Public Key from EmailJS
+      // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_PUBLIC_KEY');
+
+      // Simulating a successful request for now
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      setStatus({ type: 'success', message: 'Message sent successfully! We will get back to you soon.' });
+      setFormData({ firstName: '', lastName: '', email: '', subject: 'General Inquiry', message: '' });
+    } catch (error) {
+      console.error(error);
+      setStatus({ type: 'error', message: 'Failed to send message. Please try again later.' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="pb-24">
       <section className="bg-gray-50 pt-20 pb-24 text-center">
@@ -63,26 +100,59 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Form */}
-        <div className="bg-white p-10 rounded-[2rem] shadow-2xl border border-gray-100">
+        <div className="bg-white p-10 rounded-[2rem] shadow-2xl border border-gray-100 h-fit">
           <h3 className="text-2xl font-heading font-bold text-royal mb-8">Send Us a Message</h3>
-          <form className="space-y-6">
+
+          {status.message && (
+            <div className={`mb-6 p-4 rounded-xl ${status.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+              {status.message}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">First Name</label>
-                <input type="text" className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald" />
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald"
+                />
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">Last Name</label>
-                <input type="text" className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald" />
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald"
+                />
               </div>
             </div>
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
-              <input type="email" className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald" />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald"
+              />
             </div>
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Subject</label>
-              <select className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald">
+              <select
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald"
+              >
                 <option>General Inquiry</option>
                 <option>Donation / Sponsorship</option>
                 <option>Partnership</option>
@@ -91,10 +161,21 @@ const Contact: React.FC = () => {
             </div>
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Message</label>
-              <textarea rows={6} className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald"></textarea>
+              <textarea
+                rows={6}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full bg-gray-50 border-none rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald"
+              ></textarea>
             </div>
-            <button className="w-full bg-royal hover:bg-blue-800 text-white font-bold py-4 rounded-xl shadow-lg transition-all hover:-translate-y-1">
-              Send Message
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full bg-royal hover:bg-blue-800 text-white font-bold py-4 rounded-xl shadow-lg transition-all hover:-translate-y-1 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+            >
+              {loading ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>

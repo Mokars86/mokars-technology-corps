@@ -1,8 +1,11 @@
 
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { PROJECTS, TESTIMONIALS } from '../constants.tsx';
 import ProjectCard from '../components/ProjectCard';
+import { fadeInUp, staggerContainer } from '../utils/animations';
 
 const Home: React.FC = () => {
   const featuredProjects = PROJECTS.slice(0, 3);
@@ -28,7 +31,13 @@ const Home: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="max-w-2xl"
+          >
             <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-tight mb-6">
               Innovating Today for a <span className="text-emerald">Smarter</span> Tomorrow
             </h1>
@@ -43,29 +52,40 @@ const Home: React.FC = () => {
                 Apply as Developer
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Impact Metrics */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-[2rem] shadow-2xl p-12 -mt-32 relative z-20 border border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="bg-white rounded-[2rem] shadow-2xl p-12 -mt-32 relative z-20 border border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-8"
+        >
           {metrics.map((metric, i) => (
-            <div key={i} className="text-center group">
+            <motion.div key={i} variants={fadeInUp} className="text-center group">
               <div className="text-4xl md:text-5xl font-heading font-extrabold text-royal mb-2 group-hover:scale-110 transition-transform">
                 {metric.value}
               </div>
               <div className="text-gray-500 font-medium uppercase text-xs tracking-widest">
                 {metric.label}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Mission & Vision */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
-        <div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
           <span className="text-emerald font-bold uppercase tracking-widest text-sm mb-4 block">Our Mission</span>
           <h2 className="text-4xl font-heading font-bold text-royal mb-6 leading-tight">
             Empowering Africa Through Disruptive Innovation
@@ -83,8 +103,14 @@ const Home: React.FC = () => {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="relative">
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="relative"
+        >
           <div className="aspect-square bg-emerald rounded-3xl overflow-hidden shadow-2xl rotate-3">
             <img src="https://picsum.photos/seed/vision/800/800" alt="Innovation" className="-rotate-3 w-full h-full object-cover scale-110" />
           </div>
@@ -92,7 +118,7 @@ const Home: React.FC = () => {
             <p className="text-royal font-bold italic text-lg mb-2">"Building for the next billion."</p>
             <p className="text-gray-500 text-sm">— Team Mokars</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Featured Projects */}
@@ -111,11 +137,19 @@ const Home: React.FC = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             {featuredProjects.map(project => (
-              <ProjectCard key={project.id} project={project} />
+              <motion.div key={project.id} variants={fadeInUp}>
+                <ProjectCard project={project} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -123,9 +157,19 @@ const Home: React.FC = () => {
       {/* Testimonials */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-4xl font-heading font-bold text-center mb-16 text-royal">What People Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           {TESTIMONIALS.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col items-center text-center relative hover:-translate-y-2 transition-transform">
+            <motion.div
+              key={testimonial.id}
+              variants={fadeInUp}
+              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col items-center text-center relative hover:-translate-y-2 transition-transform"
+            >
               <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-4 border-emerald/20">
                 <img src={testimonial.imageUrl} alt={testimonial.name} className="w-full h-full object-cover" />
               </div>
@@ -134,14 +178,20 @@ const Home: React.FC = () => {
                 <h4 className="font-bold text-royal font-heading">{testimonial.name}</h4>
                 <p className="text-xs text-emerald font-bold uppercase tracking-wider">{testimonial.role}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Donation CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-royal rounded-[2.5rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="bg-royal rounded-[2.5rem] p-12 text-center text-white relative overflow-hidden shadow-2xl"
+        >
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald/20 blur-3xl rounded-full -mr-32 -mt-32"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/20 blur-2xl rounded-full -ml-24 -mb-24"></div>
 
@@ -154,10 +204,11 @@ const Home: React.FC = () => {
               Donate to Mokars
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
 };
 
 export default Home;
+
