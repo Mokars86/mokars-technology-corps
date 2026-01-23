@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center text-royal font-bold text-lg">M</div>
+              <img src="/favicon.jpg" alt="Mokars Logo" className="w-8 h-8 rounded-md object-contain bg-white" />
               <span className="font-heading font-bold text-xl">Mokars Tech</span>
             </div>
             <p className="text-blue-100 leading-relaxed mb-6">

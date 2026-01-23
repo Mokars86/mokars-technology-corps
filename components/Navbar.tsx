@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center gap-2">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-royal font-bold text-xl">M</div>
+              <img src="/favicon.jpg" alt="Mokars Logo" className="w-10 h-10 rounded-lg object-contain bg-white" />
               <span className="text-white font-heading font-bold text-2xl tracking-tighter hidden md:block">
                 MT<span className="text-emerald">c</span>
               </span>
